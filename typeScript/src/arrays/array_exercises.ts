@@ -40,6 +40,7 @@ function preview_exercise_3(): string {
         console.log("slice de 0: ", array.slice(0))
         console.log("slice de 0 a 0:", array.slice(0, 0));
         console.log("slice de 0 a 2:", array.slice(0, 2));
+        console.log("slice de 2 a 2:", array.slice(2, 2));
         console.log("slice de 3 a 5:", array.slice(3, 5));
         // slice no hace el corte de atras hacia delante
         console.log("slice de 5 a 1:", array.slice(5, 1));
@@ -109,10 +110,36 @@ function preview_exercise_3(): string {
         console.log("\n Combinacion de flatmap y map: ", res);
     }
 
+    /**
+     * 6. Visualiza paso a paso
+     */
+    function flatMap_map_visualizacion(){
+        let array: Array<number> =[10,20,30];
+
+        const result = array.flatMap((_,i) => {
+            console.log("i = ", i);
+            return array.slice(i).map((_,j) => {
+                console.log("slice ",i, " ",i + j +1, "array",array.slice(i, i + j + 1));
+                return array.slice(i, i + j + 1);
+            });
+        });
+        // para este ejercicio se juega con los indices de los arreglos utitlizando las funciones map o flatmap, y con esos mismos indices nos apoyamos de la funcion slice para obtener los elementos
+
+        console.log("result = ", result);
+    }
+
+    /**
+     * 7. Predice la salida
+     */
+    function predecir_salida() {
+        
+    }
+
     reforce_slice();
     reforce_map();
     understand_flatmap();
     flatMap_map();
+    flatMap_map_visualizacion();
 
     return ("ejercicios previos para entender el ejercio 3:");
 }
