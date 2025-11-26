@@ -15,10 +15,6 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-
-
-
-
 interface Book {
     author: string,
     title: string,
@@ -97,15 +93,18 @@ function myBooks(): Array<Book> {
     return books;
 }
 
-function menu() {
+async function menu() {
     console.log("Bienvenido a mi biblioteca! \n");
     console.log("Estos son mis libros: \n\n");
     console.log(myBooks);
 
     console.log("\n\n✴Elije una de las opciones: ");
-    console.log("\n 1) Agregar un nuevo libro \n2) Editar un libro \n3)Borrar un libro");
-    let answer = rl.question("¿Tu nombre? ");
+    console.log("\n1) Agregar un nuevo libro \n2) Editar un libro \n3)Borrar un libro");
+    let option = await rl.question("¿Tu nombre? ");
+    console.log("option: ", option);
     rl.close();
 
 }
+
+menu()
 
