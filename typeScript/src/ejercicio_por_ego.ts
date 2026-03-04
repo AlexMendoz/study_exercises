@@ -11,8 +11,8 @@
 import * as readline from "readline/promises";
 
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+    input: process.stdin,
+    output: process.stdout,
 });
 
 interface Book {
@@ -62,10 +62,10 @@ function createBook(): Book {
     let read: boolean = false;
 
     return {
-        author: authors[Math.random() * authors.length + 1],
-        title: titles[Math.random() * (titles.length + 1)],
-        description: descriptions[Math.random() * (descriptions.length + 1)],
-        read: false
+        author: authors[Math.floor(Math.random() * authors.length)],
+        title: titles[Math.floor(Math.random() * titles.length)],
+        description: descriptions[Math.floor(Math.random() * descriptions.length)],
+        read: read
     };
 
 }
@@ -96,14 +96,46 @@ function myBooks(): Array<Book> {
 async function menu() {
     console.log("Bienvenido a mi biblioteca! \n");
     console.log("Estos son mis libros: \n\n");
-    console.log(myBooks);
+    let initBooks = myBooks();
+    console.log(initBooks);
 
-    console.log("\n\n✴Elije una de las opciones: ");
+    console.log("\n\n✾  Elije una de las opciones: ");
     console.log("\n1) Agregar un nuevo libro \n2) Editar un libro \n3)Borrar un libro");
-    let option = await rl.question("¿Tu nombre? ");
+    let option: string = await rl.question("");
     console.log("option: ", option);
-    rl.close();
 
+    while (option != "4") {
+
+
+        switch (option) {
+            case "1":
+                newBook(initBooks);
+                console.log("Has creado un nuevo libro: \n\n");
+                console.log(initBooks);
+                break;
+
+            case "2":
+
+                console.log("\n\n ☁︎¿Qué libro te gustaría editar?\n\n");
+                initBooks.map((b, i) => {
+                    console.log(i, ": ", b.title);
+                    initBooks
+                });
+                let editBook: string = await rl.question("");
+                console.log("¡Excelente, has escogido este título: ", initBooks[Number(editBook)].title);
+
+                
+
+                break;
+
+            case "4":
+                console.log("\n\n 𓇢𓆸 Nos vemos pronto! 𓇢𓆸 \n\n")
+                break;
+            default:
+                break;
+        }
+    }
+    rl.close();
 }
 
 menu()
