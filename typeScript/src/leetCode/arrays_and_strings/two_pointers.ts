@@ -73,3 +73,44 @@ console.log("\nsumTargetArray")
 console.log(sumTargetArray([1, 2, 4, 6, 8, 9, 14, 15], 13))
 console.log()
 console.log()
+
+
+/**
+ * Dados dos array de numeros enteros ordenados, regresa un array que combine ambos y mantenga el orden
+ */
+
+function joinSortArray(a: Array<number>, b: Array<number>) {
+    let i = 0;
+    let j = 0;
+    let newArray: Array<number> = [];
+
+    while( i < a.length && j < b.length){
+
+        if(a[i] < b[j]){
+            newArray.push(a[i]);
+            i++;
+        } else {
+            newArray.push(b[j]);
+            j++;
+        }
+
+        
+    }
+    while (i < a.length) {
+        newArray.push(a[i]);
+        i++;
+
+    }
+
+    while (j < b.length){
+        newArray.push(b[j]);
+        j++;
+    }
+
+    return newArray;
+
+}
+console.log("\njoinSrortArray")
+console.log(joinSortArray([1,4,7,20],[3,5,6]));
+console.log(joinSortArray([3,5,6],[1,4,7,20]));
+console.log(joinSortArray([3,3,5,6,6],[0,1,4,7,20]));
