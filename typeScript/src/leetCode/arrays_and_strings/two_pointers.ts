@@ -78,7 +78,12 @@ console.log()
 /**
  * Dados dos array de numeros enteros ordenados, regresa un array que combine ambos y mantenga el orden
  */
-
+/**
+ * 
+ * @param a array
+ * @param b array
+ * @returns 
+ */
 function joinSortArray(a: Array<number>, b: Array<number>) {
     let i = 0;
     let j = 0;
@@ -111,3 +116,28 @@ console.log("\njoinSortArray")
 console.log(joinSortArray([1,4,7,20],[3,5,6]));
 console.log(joinSortArray([3,5,6],[1,4,7,20]));
 console.log(joinSortArray([3,3,5,6,6],[0,1,4,7,20]));
+
+/**
+ * Dado un string t, determinar si s es subsecuencia de t, devolver True si lo es, Falso si no
+ * @param s 
+ * @param t 
+ */
+function isSubsequence(s: String, t: String){
+    let i = 0;
+    let j = 0;
+
+    while(j < t.length && i < s.length){
+        if(s[i] == t[j]){
+            i++;
+        } 
+        j++;
+    }
+    // si i es igual que la longitud de s, es que llego al final y por lo tanto es subsecuencia
+    // (si i == s.length ya no se puede recorrer el array porque da un overflow)
+    return i == s.length;
+}
+
+console.log("\nisSubsequence");
+console.log(isSubsequence("ace", "abcde"));
+console.log(isSubsequence("aba", "banana"));
+console.log(isSubsequence("otico", "ornitorrinco"));
