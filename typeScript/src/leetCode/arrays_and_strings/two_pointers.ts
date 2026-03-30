@@ -93,8 +93,6 @@ function joinSortArray(a: Array<number>, b: Array<number>) {
             newArray.push(b[j]);
             j++;
         }
-
-        
     }
     while (i < a.length) {
         newArray.push(a[i]);
@@ -108,9 +106,8 @@ function joinSortArray(a: Array<number>, b: Array<number>) {
     }
 
     return newArray;
-
 }
-console.log("\njoinSrortArray")
+console.log("\njoinSortArray")
 console.log(joinSortArray([1,4,7,20],[3,5,6]));
 console.log(joinSortArray([3,5,6],[1,4,7,20]));
 console.log(joinSortArray([3,3,5,6,6],[0,1,4,7,20]));
