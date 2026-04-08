@@ -1,5 +1,7 @@
 /**
  * Ejercicios de sliding window
+ * 
+ * Parte de la estrategia que usa sliding window es hacer el analizis sobre el recorrido del array, asi no guardamos variables inecesarias y solo reasignamos cuando es necesario.
  *
  */
 
@@ -27,5 +29,38 @@ function longestSubArray(arr: Array<number>, k: number){
     }
     return res;
 }
-
+console.log("\nlongestSubArray")
 console.log(longestSubArray([3, 1, 2, 7, 4, 2, 1, 1, 5], 8))
+
+/**
+ * Ejercicio 2
+ * 
+ * Dado un array binario s (que solo contenga 0 y 1), Deberás elegir hasta un 0 y cambiarlo por 1. Tal que la longitud logre ser la longitud mas grande de un sub array que contenga solo 1
+ * 
+ * s = "1101100111"; la repsuesta es 5, ya que si cambiamos el indice 2 se crea 1111100111.
+ */
+function binaryString(s: string) {
+    //esto se puede ver como 'cuantos ceros hay en el substring, si tiene mas de un cero, ya no se se concidera'
+    let left = 0;
+    // let arrayS = Array.from(s); // se crea el array desde el string
+    let curr = 0; // como la restriccion es una suma se decalara esta variable que tendra la suma actual
+
+    for(let right = 0; right < s.length; right++){// el tiene el indice derecho
+        //rigth debe agregar todo el tiempo a la ventana?
+
+
+    }
+
+    // console.log(s.slice(0,s.length).split('0'))
+    // console.log(s.slice(0,s.length).split('0').length)
+
+    // recuerda que el while es mientras no condicion sea invalida. ¿cual es la condicion invalida para que siga?
+    // la condicion invalida para que siga el while es que haya mas de un cero en el sub arrays
+    /**
+     * while subArr.count('0') > 1 
+     */
+}
+
+console.log("\nbinaryString");
+binaryString("1101100111");
+// binaryString("11001100111");
