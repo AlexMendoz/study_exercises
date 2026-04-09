@@ -63,7 +63,6 @@ function binaryString(s: string) {
     }
     return ans;
 }
-
 console.log("\nbinaryString");
 console.log(binaryString("1101100111"), "5"); // res 5
 console.log(binaryString("11001100111"), "4"); //res 4
@@ -72,7 +71,6 @@ console.log(binaryString("011001100111"), "4"); // cero al inicio res 4
 console.log(binaryString("00110011001110"), "4"); // doble cero al inicio y final res 4
 console.log(binaryString("1101111100111"), "8"); // res 8
 console.log(binaryString("00100"), "2"); // res 2
-// binaryString("11001100111"))
 /**
  * 1101100111
  * i            curr = 0; i = 0; j = 0
@@ -122,5 +120,18 @@ console.log(binaryString("00100"), "2"); // res 2
  *          i   curr = 1; i = 11; j = 8; length = 2; length 4 > ans 5 ? SI -> ans = length NO  ans = ans; ans 5
  *       j     
  * 
+ */
+
+/**
+ * Ejercicio 3 
+ * 
+ * Dado un array de numeros enteros positivos y un entero k, encontrar todos lo subarray validos que cumplan que el producto sea menor que k y devolver la cantidad de subarrays validos
+ * Por ejemplo: nums = [10, 5, 2, 6]; [10] 10 * 1 = 10 valido; [10,5] 10 * 5 = 50 valido; [10, 5, 2] 10 * 5 * 2 = 100 No valido
  * 
  */
+function productLessThanK(arr: Array<number>, k: number){
+    // se inician las variables i, j, curr,
+    // parte de la idea es almacenar la multiplicacion y luego ir añadiendo o eliminando, muy similar al prefix sum
+    // si un subarrays es valido, por consecuente los sub array serán validos, por ejemplo: [10,5] -> [10], [5]
+    // 
+}
