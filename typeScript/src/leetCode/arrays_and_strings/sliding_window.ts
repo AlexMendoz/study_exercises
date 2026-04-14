@@ -158,3 +158,39 @@ console.log("\nproductLessThanK");
 console.log(productLessThanK([10, 5, 2, 6],100));
 console.log(productLessThanK([2, 3, 5, 8, 6],100));
 
+/**
+ * El siguiente ejemplo va sobre una variacion del sliding window, ahora el k será el tamaño de una ventana fija, es decir, en anteriores ejercicios la ventana era de tamaño dinamica y ahora tendra un tamaño fijo, por ejemplo k = 2, tendra dos elementos.
+ * k = 2; arr = [10,5,2,6]; ventana = [10,5] -> [5,2] -> [2,6] y deberan cumplir cierta condicion.
+ * Para este problema, se deberá calcular el valor de ventana y se iran sumando y restando los elemtos segun sea el caso
+ * window [10,5] = 15 -> [5,2] = 15 - 10 +2 = 7 -> [2,6] = 7 - 5 +6 = 8
+ */
+
+/**
+ * Dado un array de numero y un entero k, encuentra el sub array de longitud k que tenga la mayor suma de elementos
+ * @param arr 
+ * @param k 
+ */
+function findBestStaticSubArray(arr: Array<number>, k: number) {
+    let curr = 0;
+    let ans = 0;
+    // se crea el valor de la primer ventana
+    for (let i = 0; i < k; i++) {
+        curr += arr[i];
+    }
+    ans = curr;
+    // se evalua como sliding window normal pero con rigth iniciado en k por que ya se calculo el tamaño de la primer ventana
+    for (let i = k; i < arr.length; i++) {
+        curr = curr - arr[i-k] + arr[i];
+        // console.log(curr);
+        //evaluacion para determinar la respuesta correcta
+        if(curr >= ans){
+            ans = curr;
+        }
+    }
+    return ans;
+}
+
+console.log("\nfindBestStaticSubArray");
+console.log(findBestStaticSubArray([10, 5, 2, 6],2));
+console.log(findBestStaticSubArray([3,-1,4,12,-8,5,6],4));
+console.log(findBestStaticSubArray([4,-3,1,12,-8,2,6,3,19,2,-12],3));
