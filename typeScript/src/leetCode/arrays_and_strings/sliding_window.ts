@@ -133,5 +133,28 @@ function productLessThanK(arr: Array<number>, k: number){
     // se inician las variables i, j, curr,
     // parte de la idea es almacenar la multiplicacion y luego ir añadiendo o eliminando, muy similar al prefix sum
     // si un subarrays es valido, por consecuente los sub array serán validos, por ejemplo: [10,5] -> [10], [5]
-    // 
-}
+
+    let j = 0;
+    let ans = 0;
+    let curr = 1;
+
+    if (k <= 1) {   // como la multipicacion debe ser mayor a k, no hay ningun numero menor a 1, por lo que se devulve cero
+        return 0;
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        curr *= arr[i]; //vamos agregando las multiplicaciones
+        //condicion invalida -> while curr >= k
+        while (curr >= k) {
+            curr /= arr[j]; //se le quita el ultimo elemento
+            j++;
+        }
+        ans += i -j +1; // cuando se detecta un sub array valido, los sub array de este son validos y la cantidad total esta dada pr i-j+1
+    }
+    return ans;
+}// un siguinete paso seria mostrar todos los subarray validos
+
+console.log("\nproductLessThanK");
+console.log(productLessThanK([10, 5, 2, 6],100));
+console.log(productLessThanK([2, 3, 5, 8, 6],100));
+
