@@ -18,11 +18,11 @@ function maximunConsecutiveOnes(arr: Array<number>, k: number){
         }
         // lo nuevo es que el tamaño de
         while(curr > k){ //condicion invalida para hacer avanzar j,
-            if(arr[i] == 0 && arr[j] == 0){
-                j++;
+
+            if(arr[j] == 0){
+                curr--;
             }
-            j = i;
-            curr = 0;
+            j++;
         }
         ans = Math.max(ans, i -j +1);
     }
