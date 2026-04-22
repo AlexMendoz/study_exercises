@@ -13,6 +13,8 @@
  * 
  * Ejemplo: Dado lo siguiente 
  * nums = [1, 6, 3, 2, 7, 2], queries = [[0, 3], [2, 5], [2, 4]], and limit = 13 la respuesta seria [true, false, true] para cada query, la suma de los subarrays es [12, 14, 12]
+ * 
+ * prefix = [ 1, 7, 10, 12, 19, 21 ]
  */
 
 function answerQuerys(arr: Array<number>, querys: Array<any>, limit: number) {
@@ -24,19 +26,18 @@ function answerQuerys(arr: Array<number>, querys: Array<any>, limit: number) {
     let ans = [];
     //evaluacion de los querys
     for (let i = 0; i < querys.length; i++) {
-        console.log(querys[i][0])
-        console.log(prefix[querys[i][0]] , prefix[querys[i]])
-        if ((prefix[querys[i][0]] - prefix[querys[i][1]- 1]) < limit) {
+        if ((prefix[querys[i][1]] - prefix[querys[i][0]] + arr[i]) < limit) {
             ans.push(true);
         } else {
             ans.push(false);
         }
         
     }
-    console.log(ans);
+    return ans;
 }
 
 
 
-console.log(answerQuerys([5, 2, 1, 6, 3, 8], [[0, 3], [2, 5], [2, 4]],1))
+console.log("\nanswerQuerys")
+console.log(answerQuerys([1, 6, 3, 2, 7, 2], [[0, 3], [2, 5], [2, 4]],13))
 
