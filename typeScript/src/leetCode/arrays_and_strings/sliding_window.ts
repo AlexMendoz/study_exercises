@@ -27,5 +27,5 @@ function longestSubArray(arr: Array<number>, k: number){
     }
     return res;
 }
-
-console.log(longestSubArray([3, 1, 2, 7, 4, 2, 1, 1, 5], 8))
+console.log("\longestSubArray")
+console.log(longestSubArray([3, 1, 2, 7, 4, 2, 1, 1, 5], 8));
