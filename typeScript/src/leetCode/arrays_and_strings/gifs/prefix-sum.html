@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prefix Sum GIF</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .status {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Generando GIF de Prefix Sum...</h2>
+
+  <canvas id="canvas" width="720" height="400"></canvas>
+
+  <div class="status" id="status">Preparando animación...</div>
+
+  <script>
+    const nums = [2, 4, 1, 3];
+    const prefix = [];
+    const queryL = 1;
+    const queryR = 3;
+
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+
+    const gif = new GIF({
+      workers: 2,
+      quality: 10,
+      width: canvas.width,
+      height: canvas.height,
+      workerScript: "gif.worker.js"
+    });
+
+    function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function drawArray(label, arr, y, activeIndex = -1, rangeStart = -1, rangeEnd = -1) {
+      ctx.fillStyle = "#111";
+      ctx.font = "bold 18px Arial";
+      ctx.fillText(label, 50, y + 35);
+
+      arr.forEach((value, index) => {
+        const x = 170 + index * 90;
+        const size = 55;
+
+        let color = "#dddddd";
+
+        if (index >= rangeStart && index <= rangeEnd) {
+          color = "#ff9800";
+        }
+
+        if (index === activeIndex) {
+          color = "#2196f3";
+        }
+
+        ctx.fillStyle = color;
+        ctx.fillRect(x, y, size, size);
+
+        ctx.fillStyle = "#111";
+        ctx.font = "bold 20px Arial";
+        ctx.fillText(value, x + 18, y + 35);
+
+        ctx.font = "12px Arial";
+        ctx.fillText(index, x + 22, y + 72);
+      });
+    }
+
+    function wrapText(text, x, y, maxWidth, lineHeight) {
+      const words = text.split(" ");
+      let line = "";
+
+      for (let i = 0; i < words.length; i++) {
+        const testLine = line + words[i] + " ";
+        const metrics = ctx.measureText(testLine);
+
+        if (metrics.width > maxWidth && i > 0) {
+          ctx.fillText(line, x, y);
+          line = words[i] + " ";
+          y += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+
+      ctx.fillText(line, x, y);
+    }
+
+    function drawFrame(message, activeNums = -1, activePrefix = -1, rangeStart = -1, rangeEnd = -1, formula = "") {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#111";
+      ctx.font = "bold 26px Arial";
+      ctx.fillText("Prefix Sum", 285, 38);
+
+      ctx.font = "16px Arial";
+      ctx.fillText("nums = [2, 4, 1, 3]", 285, 70);
+
+      drawArray("nums", nums, 110, activeNums, rangeStart, rangeEnd);
+      drawArray("prefix", prefix.length ? prefix : ["?", "?", "?", "?"], 210, activePrefix);
+
+      if (formula) {
+        ctx.fillStyle = "#2e7d32";
+        ctx.font = "bold 18px Arial";
+        ctx.fillText(formula, 170, 315);
+      }
+
+      ctx.fillStyle = "#111";
+      ctx.font = "16px Arial";
+      wrapText(message, 45, 360, 650, 22);
+
+      gif.addFrame(canvas, {
+        delay: 2200,
+        copy: true
+      });
+    }
+
+    async function run() {
+      status.textContent = "Generando frames...";
+
+      drawFrame("Creamos un arreglo prefix para guardar sumas acumuladas.");
+      await wait(800);
+
+      prefix[0] = nums[0];
+      drawFrame("prefix[0] = nums[0] = 2", 0, 0, -1, -1, "prefix[0] = 2");
+      await wait(800);
+
+      prefix[1] = prefix[0] + nums[1];
+      drawFrame("prefix[1] = prefix[0] + nums[1] = 2 + 4 = 6", 1, 1, -1, -1, "prefix[1] = 6");
+      await wait(800);
+
+      prefix[2] = prefix[1] + nums[2];
+      drawFrame("prefix[2] = prefix[1] + nums[2] = 6 + 1 = 7", 2, 2, -1, -1, "prefix[2] = 7");
+      await wait(800);
+
+      prefix[3] = prefix[2] + nums[3];
+      drawFrame("prefix[3] = prefix[2] + nums[3] = 7 + 3 = 10", 3, 3, -1, -1, "prefix[3] = 10");
+      await wait(800);
+
+      drawFrame("Ahora podemos consultar la suma de un rango rápidamente.", -1, -1, queryL, queryR);
+      await wait(800);
+
+      drawFrame(
+        "Queremos sum(1, 3), que corresponde a nums[1] + nums[2] + nums[3].",
+        -1,
+        -1,
+        queryL,
+        queryR,
+        "sum(1, 3)"
+      );
+      await wait(800);
+
+      drawFrame(
+        "Usamos la fórmula: prefix[R] - prefix[L - 1].",
+        -1,
+        queryR,
+        queryL,
+        queryR,
+        "prefix[3] - prefix[0]"
+      );
+      await wait(800);
+
+      drawFrame(
+        "sum(1, 3) = prefix[3] - prefix[0] = 10 - 2 = 8.",
+        -1,
+        queryR,
+        queryL,
+        queryR,
+        "10 - 2 = 8"
+      );
+      await wait(800);
+
+      drawFrame(
+        "Resultado: la suma del rango [1, 3] es 8.",
+        -1,
+        -1,
+        queryL,
+        queryR,
+        "Respuesta = 8"
+      );
+      await wait(800);
+
+      status.textContent = "Renderizando GIF...";
+      gif.render();
+    }
+
+    gif.on("finished", function(blob) {
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "prefix-sum.gif";
+      link.textContent = "Descargar GIF";
+      link.style.display = "inline-block";
+      link.style.marginTop = "20px";
+      link.style.padding = "12px 18px";
+      link.style.background = "#222";
+      link.style.color = "white";
+      link.style.borderRadius = "8px";
+      link.style.textDecoration = "none";
+
+      document.body.appendChild(link);
+
+      status.textContent = "GIF listo. También debería descargarse automáticamente.";
+      link.click();
+    });
+
+    run();
+  </script>
+</body>
+</html>
