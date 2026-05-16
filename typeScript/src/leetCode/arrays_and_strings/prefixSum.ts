@@ -36,8 +36,6 @@ function answerQuerys(arr: Array<number>, querys: Array<any>, limit: number) {
     return ans;
 }
 
-
-
 console.log("\nanswerQuerys")
 console.log(answerQuerys([1, 6, 3, 2, 7, 2], [[0, 3], [2, 5], [2, 4]],13))
 
@@ -65,15 +63,16 @@ function numberOfWaysToSplitArray(arr: Array<number>){
     let ans = 0;
 
     for (let i = 1; i < arr.length; i++) {
+        // como nota, hay que ser mas espeficico en la creacion de las variables
+        // let leftSection = prefix[i-1];
+        // let rightSection = prefix[prefix.length -1] - prefix[i-1]
         if(prefix[i-1] > (prefix[prefix.length -1] - prefix[i-1])){
             //console.log(prefix[i-1] ,">", (prefix[prefix.length -1] - prefix[i-1]))
             ans ++;
         }
-        
     }
 
     return ans;
-
 }
 console.log("\nnumberOfWaysToSplitArray")
 console.log(numberOfWaysToSplitArray([10,4,-8,7]))
