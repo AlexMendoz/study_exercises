@@ -29,10 +29,6 @@ function longestSubArray(arr: Array<number>, k: number){
     }
     return res;
 }
-<<<<<<< HEAD
-console.log("\longestSubArray")
-console.log(longestSubArray([3, 1, 2, 7, 4, 2, 1, 1, 5], 8));
-=======
 console.log("\nlongestSubArray")
 console.log(longestSubArray([3, 1, 2, 7, 4, 2, 1, 1, 5], 8))
 
@@ -198,4 +194,4 @@ console.log("\nfindBestStaticSubArray");
 console.log(findBestStaticSubArray([10, 5, 2, 6],2));
 console.log(findBestStaticSubArray([3,-1,4,12,-8,5,6],4));
 console.log(findBestStaticSubArray([4,-3,1,12,-8,2,6,3,19,2,-12],3));
->>>>>>> 2e9d6fc83751e1e25a5115aac6b464c20a008be7
+

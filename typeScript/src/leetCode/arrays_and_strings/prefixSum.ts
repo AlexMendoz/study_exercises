@@ -93,3 +93,35 @@ console.log(numberOfWaysToSplitArray([10,4,12,6,4,1,-8,7]))
  * prefix[j] - prefix[i - 1] = prefix[3] - prefix[1-1] = prefix[3] - prefix[0] = 13 - 10 = 3 
  * 
  */
+
+/**
+ * Dado un array de numero enteros nums. Comenzaras con un valor inicial positivo initialValue.
+ * En cada iteración, vas a calcular la suma paso a paso con el InitialValue y los elementos en nums (de ixquierda a derecha). Regresa el valor minimo posivito de initialVlaue tal que la suma paso a paso nunca sea menor que 1.
+ * 
+ * Input: nums = [-3,2,-3,4,2]
+    Output: 5
+    Explanation: If you choose startValue = 4, in the third iteration your step by step sum is less than 1.
+    step by step sum
+    startValue = 4 | startValue = 5 | nums
+    (4 -3 ) = 1  | (5 -3 ) = 2    |  -3
+    (1 +2 ) = 3  | (2 +2 ) = 4    |   2
+    (3 -3 ) = 0  | (4 -3 ) = 1    |  -3
+    (0 +4 ) = 4  | (1 +4 ) = 5    |   4
+    (4 +2 ) = 6  | (5 +2 ) = 7    |   2
+ */
+
+function minimunValueStepByStep(nums: Array<number>){
+    let total = 0;
+    let initialValue = 0;;
+    for (let i = 0; i < nums.length; i++) {
+        // prefixSum[i] = prefixSum[i-1] + nums[i]
+        total = total + nums[i];
+        initialValue = Math.min(total, initialValue);
+    }
+    return (initialValue) * (-1) + 1;
+}
+console.log("\nminimunValueStepByStep")
+// console.log(minimunValueStepByStep([10, 5, 2, 6]))
+console.log(minimunValueStepByStep([-3,2,-3,4,2]))
+
+
