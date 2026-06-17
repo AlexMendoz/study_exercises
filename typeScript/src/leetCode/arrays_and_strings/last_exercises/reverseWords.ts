@@ -90,10 +90,10 @@ function reverseStringIIII(s: string): string{
             j--;//reducimos el ultimo indice
 
         }
-        res = res.concat(sArray[w].join("") + " ")
+        res = res.concat(sArray[w].join("") + " ")  
         
     }
     return res.trim();
 }
 
-reverseStringIIII("Let's take LeetCode contest");
+console.log(reverseStringIIII("Let's take LeetCode contest"))

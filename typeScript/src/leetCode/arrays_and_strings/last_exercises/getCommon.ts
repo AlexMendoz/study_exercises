@@ -24,46 +24,26 @@ function getCommon(nums1: number[], nums2: number[]){
      * i -> nums1; j -> nums2;
      * como los valores estan oredenados, la busqueda comienza desde el indice 0 para ambos
      */
+    let i = 0, j = 0, res = -1;
 
-    let i = nums1.length -1, j = nums2.length -1, res = -1;
-
-    while (i < nums1.length && j < nums2.length) {
-        console.log(1,res)
-        if( nums1[i] === nums2[j]){
-            res = nums1[i];
-            res = Math.min(res, nums1[i]);
+    while(i < nums1.length && j < nums2.length){ // validamos que ambos indices esten dentro de los arrays
+        if (nums1[i] === nums2[j]) { // validacion de cada elmento
+            return nums1[i];
+        } 
+        // avance de cada puntero segun la condicion ¿que es lo que hace que avance o no un puntero?
+        if (nums1[i] < nums2[j]) { // como 1 es menor que el 2, ya no puede aparecer mas en nums2
+            i++;
+        } else {
+            j++;    // si el valor de nums2[j] es menor que nums1[i] se avanza j por que ya no puede ser el menor
         }
-        i++;
-        j++;
+        // un punto avanza si no cumple la condicion ¿cual es esa condicion?
+        // que sea el numero sea igual en ambos y que sea el menor
+        // analiza bien las condiciones, eres matematico, no lo olvides
     }
     
-    //condicion por si nums1 termina antes que nums2
-    if (i < nums1.length) {
-        while(i < nums1.length){
-            if( nums1[i] === nums2[j]){
-                res = nums1[i];
-                res = Math.min(res, nums1[i]);
-                console.log(2,res)
-            }
-            i++;
-        }
-    }
-    //condicion por si nums2 termina antes que nums1
-    if (j < nums2.length) {
-        while (j < nums2.length) {
-            if (nums1[i] === nums2[j]) {
-                res = nums1[i];
-                res = Math.min(res, nums1[j]);
-                console.log(3,res)
-            }
-            j++;
-        }
-    }
-
-    return res;
+    return -1;
 
 }
-// res no puede ser cero!!!!!!! jajajajaja
 
 console.log(getCommon([1,2,3,6], [2,3,4,5]))
 
@@ -74,4 +54,15 @@ console.log(getCommon([1,2,3,6], [2,3,4,5]))
  * 3. declarar un ciclo while para determinar cuando nos tenemos que detener, si alguno de los valores llega al final de array
  * 4. comparar los valores, si ambos son iguales el guarda el valor  en [res]
  * 5. si un indice llega al final, regresar el ultimo valor, el mas pequeño
+ */
+
+/**
+ * cuado se tiene la primer coincidencia se sale por que debe ser el menor
+ * se tienen los dos indices en 0
+ * [1,2,3,6], [2,3,4,5] ¿i y j son iguales?
+ *  i          j        -> F i++
+ *    i        j        -> T i++ j++ res = 2
+ *      i        j      -> T i++ j++ res = 2
+ *        i        j    -> F i++     res = 2
+ * como i ya termino, pero j, tenemos que verificar si el ultimo valor de i es el meneor de j
  */
