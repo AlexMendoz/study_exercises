@@ -27,36 +27,36 @@ function getCommon(nums1: number[], nums2: number[]){
 
     let i = nums1.length -1, j = nums2.length -1, res = -1;
 
-    while (i > 0 && j > 0) {
+    while (i < nums1.length && j < nums2.length) {
         console.log(1,res)
         if( nums1[i] === nums2[j]){
-            // res = nums1[i];
+            res = nums1[i];
             res = Math.min(res, nums1[i]);
         }
-        i--;
-        j--;
+        i++;
+        j++;
     }
     
     //condicion por si nums1 termina antes que nums2
-    if (i > 0) {
+    if (i < nums1.length) {
         while(i < nums1.length){
             if( nums1[i] === nums2[j]){
-                // res = nums1[i];
+                res = nums1[i];
                 res = Math.min(res, nums1[i]);
                 console.log(2,res)
             }
-            i--;
+            i++;
         }
     }
     //condicion por si nums2 termina antes que nums1
-    if (j > 0 ) {
+    if (j < nums2.length) {
         while (j < nums2.length) {
             if (nums1[i] === nums2[j]) {
-                // res = nums1[i];
+                res = nums1[i];
                 res = Math.min(res, nums1[j]);
                 console.log(3,res)
             }
-            j--;
+            j++;
         }
     }
 
