@@ -13,18 +13,18 @@ function twoSum(nums: number[], target: number) {
 
     for (let i = 0; i < nums.length; i++) {
         let comp = target - nums[i]; // el complemento
+        if (hash.has(comp)) {
+            return [hash.get(comp), nums[i]]
+        } 
         //agregamos los elementos a Map
         hash.set(nums[i], i) // ingresamos el numero como clave y el indice como valor, asi no tenemos numeros que se repitan
-        if (hash.has(comp)) {
-            
-            return [hash.get(comp), nums[i]]
-        }
-        
+        console.log(hash.get(nums[i]))
         
     }
-
+    return [-1,-1]
 }
 
+console.log(twoSum([5,2,7,10,3,9], 8))
 /**
  * NOTAS
  * 
