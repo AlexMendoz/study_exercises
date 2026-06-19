@@ -2,26 +2,37 @@
  * 
  */
 
-function inPangram(s: string): boolean {
+function isPangram(s: string): boolean {
     // create set to english alphabet
-    // let alphabet = new Set(" B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z,A, E, I, O, U".toLocaleLowerCase());
-    let alphabet = new Map();
+    let alphabet = new Set();
+    let alphabetLen = 26;
+    let count =0;
+    for (let i = 0; i < s.length; i++) {
+        if (!alphabet.has(s[i])) {   
+            alphabet.add(s[i]);
+            count++;   
+        }
+    }
+    if(alphabet.size === alphabetLen) return true; else return false;
 
-    
-
-
-
-
-    return true;
 }
+
+console.log(isPangram("thequickbrownfoxjumpsoverthelazydog"));
+console.log(isPangram("leetcode"));
+console.log(isPangram("leetcodeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
 
 /**
  * NOTAS
  * 
  * Un pangrama es una oracion que contiene cada letra de un alfabeto, en este caso el alfabeto ingles.
  * 
+ * El alfabeto ingles tiene 26 letras
+ * 
  * IDEA 1
  * Se puede usar un Set para tener el alfabeto sin repeteciones.
+ * podemos iterar sobre cada letra del array, 
+ * verificar si se llega hasta el final
+ * y tener un contador de apariciones
  * 
  * IDEA 2
  * -    Se puede crear un un map, que cada letra sea la clave y el valor sea las veces que apareceio.
