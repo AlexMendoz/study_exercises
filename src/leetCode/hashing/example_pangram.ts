@@ -14,7 +14,8 @@ function isPangram(s: string): boolean {
         }
     }
     if(alphabet.size === alphabetLen) return true; else return false;
-
+    //IMPORTANTE
+    // como las letras del alfabeto ya estan definidas (26) se puede hacer la tranformacion  directa a una Set, asi solo comparamos la longitud del set con el 26 de las letras totales
 }
 
 console.log(isPangram("thequickbrownfoxjumpsoverthelazydog"));
