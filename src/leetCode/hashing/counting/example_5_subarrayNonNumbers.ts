@@ -10,20 +10,26 @@ For example, given nums = [1, 1, 2, 1, 1], k = 3, the answer is 2. The subarrays
 function subArrayOfNonNums(nums: number[], k: number): number{
     // NOMTA IMPORTANTE -> recordar que el el prefixSum tiene subArrays por defecto
 
-    let counts = new Map(); // de moento no me queda claro por que necesito un map ni tampoco con esa estructura
+    let counts = new Map(); // el hash map, almacena la cantiad de veces que ha aparecido un numero impar en cada array
     counts.set(0, 1);
-    let curr = 0; // variable que lleva el conteo de los numeros impares en el sub array
+    let curr = 0; // variable que lleva el conteo de los numeros impares en el sub 
+    let ans = 0;
 
     for (let i = 0; i < nums.length; i++) {
-        if (nums[i]%2 === 0) { //aqui se aumenta el contador cuando se detecta un numero impar
+        if (nums[i]%2 === 1) { //aqui se aumenta el contador cuando se detecta un numero impar
             curr++;
         }
+
+        ans = ans + (counts.get(curr -k) ?? 0); // ans es el impar anterior, entonces si existe otro impar anterior dnetro el Map, se aumenta ans
+
+        counts.set(curr, (counts.get(curr) ?? 0) + 1);
         
     }
 
-    let ans = 0;
     return ans;
 }
+
+console.log(subArrayOfNonNums([1, 1, 2, 1, 1], 3));
 
 /**
  * NOTAS
