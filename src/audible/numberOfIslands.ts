@@ -38,13 +38,42 @@ n == grid[i].length
 grid[i][j] is '0' or '1'.
  */
 
-function numberOfIslands(grid: number[][]): number {
+function numberOfIslands(grid: string[][]): number {
     let ans: number = 0;
+    let currPosition;
 
+    //recorremos cada elemento del grid
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
+            //cuando vemos un uno, nos detenemos, obtenemos los indices y buscamos
+            if (grid[i][j] === "1") {
 
+                currPosition = [i,j]
+                j++;
+                // determinar como se puede ver el siguiente uno
+                if (grid[i][j] === "1") {
+                    
+                }
+
+                //al final, hay que cambiar el 1 por un cero para que el proximo elemento no lo vea
+                return ans;
+            }
+            
+        }
+        
+    }
+
+    console.log(position)
 
     return ans;
 }
+
+console.log(numberOfIslands([
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]))
 
 /**
  * CONCIDERACIONES
