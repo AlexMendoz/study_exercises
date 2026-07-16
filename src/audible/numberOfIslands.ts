@@ -38,35 +38,69 @@ n == grid[i].length
 grid[i][j] is '0' or '1'.
  */
 
+// funciona para verificar es tamos dentro de los limites FIX, se tienen ue recibir los dos limites por separado, no ausmir que la mitrz simre sera cuadrada
+function isValid(position: [number,number], limitRow: number, limitColumn: number){
+    return (position[0] >= 0 && position[0] < limitRow && position[1] >= 0 && position[1] < limitColumn);
+}
+
+//funcion para iterar cuando se encuentre un valor adyacente 
+//FIX recueda que los array empizan desde el cero, por lo que si top aumenta, no estoy viendo hacia arriba en ela matriz, estoy viendo hacia abajo
+//FIX lo mismo para la iquierda y derecha, se tiene que aumentar o disminuir el indice 1 ya que ese represneta la columna
+function viewAdjacent(curr:[number,number], grid: string[][]){
+    
+
+    //antes de buscar vecinos, me tengo que asegurar de que los pueda buscar, o sea, puedo trabajar con la posicion curr? y la posicion curr tiene un 1?
+    let limitRow = grid.length;
+    let limitColumn = grid[0].length;
+    let row = curr[0];
+    let column = curr[1];
+    // valimos que la posicion sea valida y sea 1
+    if (!isValid(curr, limitRow, limitColumn)) {
+        return ;
+    } 
+    
+    if(grid[row][column] !== "1") {
+        return;
+    }
+
+    //piensalo como puntos cardinales, aqui acutlaizamos las posiciones para buscar en los adyacentes
+    let top: [number,number] = [curr[0] - 1, curr[1]];//[1,0]
+    let rigth: [number,number] = [curr[0], curr[1] + 1]; //[0,1]
+    let bottom: [number,number] = [curr[0]+1, curr[1]]//[0,-1];
+    let left: [number,number] = [curr[0], curr[1] -1]//[-1,0];
+    // NOTA: mi valor actual esta en curr, ahora puedo cambiar el valor en grid a 0 para no contarlo otra vez
+    grid[row][column] = "0";
+
+    viewAdjacent(top, grid);
+    viewAdjacent(rigth,grid);
+    viewAdjacent(bottom, grid);
+    viewAdjacent(left,grid);
+
+}
+
 function numberOfIslands(grid: string[][]): number {
     let ans: number = 0;
-    let currPosition;
-
     //recorremos cada elemento del grid
     for (let i = 0; i < grid.length; i++) {
         for (let j = 0; j < grid[i].length; j++) {
-            //cuando vemos un uno, nos detenemos, obtenemos los indices y buscamos
             if (grid[i][j] === "1") {
-
-                currPosition = [i,j]
-                j++;
-                // determinar como se puede ver el siguiente uno
-                if (grid[i][j] === "1") {
-                    
-                }
-
-                //al final, hay que cambiar el 1 por un cero para que el proximo elemento no lo vea
-                return ans;
+                ans++;
+                viewAdjacent([i,j],grid);
             }
-            
         }
-        
     }
-
-    console.log(position)
-
     return ans;
 }
+
+// const grid = [
+//     ["1", "1", "0"],
+//     ["1", "0", "0"],
+//     ["0", "0", "1"]
+// ];
+
+// viewAdjacent([0, 0], grid);
+
+// console.log(grid);
 
 console.log(numberOfIslands([
   ["1","1","0","0","0"],
@@ -74,6 +108,15 @@ console.log(numberOfIslands([
   ["0","0","1","0","0"],
   ["0","0","0","1","1"]
 ]))
+
+
+
+// console.log(numberOfIslands([
+//   [[    ],[1, 0],[   ],"0","0"],
+//   [[-1,0],[0, 0],[1,0],"0","0"],
+//   [[    ],[0,-1],[   ],"0","0"],
+//   ["0","0","0","1","1"]
+// ]))
 
 /**
  * CONCIDERACIONES
