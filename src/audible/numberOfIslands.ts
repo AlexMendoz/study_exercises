@@ -47,6 +47,20 @@ function numberOfIslands(grid: number[][]): number {
 }
 
 /**
+ * CONCIDERACIONES
+ * -    los 1 es una isla
+ * -    cada 1 adyacente a otro, significa que es una isla
+ * -    Como determinamos que un 1 es adyacente a otro? por su posicion, esto es una array 2D, por lo que la posicion anterior tiene que tener un elemento de anterior o posterior, es decir: curr = [0,1], antes = [0,0], despues = [0,2], siendo que el curr con [i,j] debe coincider con antes en i y con despues en i, esto para el eje horizontal, para el posterior debe coincidir en j
+ * 
+ * TIPS
+ * -    no es necesario ver un elemento anterior, solo ver hacia delante
+ * -    Recordar que la matriz tiene limites, esto es por si buscamos elementos anterios o posteriores nos salgamos de los limites
+ * -    
+ */
+
+
+
+/**
  * NOTAS    
  * Este ejercicio ya lo hice con arturo pero no lo logre replicar del todo pero ya entiendo mas como va el problema
  * -    Recuerda que que hay un eje para ver las islas
