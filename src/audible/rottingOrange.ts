@@ -41,54 +41,43 @@ function isValid(row:number, col: number, grid: number[][]):boolean{
     return (row >= 0 && row < grid.length && col >= 0 && col < grid[0].length);
 }
 
-//funcion para determinar si una naranja esta podrida
-function contagio(row: number, col: number, grid: number[][]): number {
-    //antes de hacer cualquier operacion se tiene que validar que cumpla las condiciones del problema
-    // revisar que este dentro de los limites
-    if (!isValid(row, col, grid)) {
-        return 0;
+
+function rottingOranges(grid: number[][]): number{
+
+    const queue: [number, number][] = []; //naranjas podridas pedeintes de procesar
+    let fresh = 0;  //naranjas frescas que quedan
+    let minutes: number = 0; //minutos 
+
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
+            
+            if (grid[i][j] == 1) { //naranjas frescas que quedan
+                fresh++;
+            };
+            
+            if (grid[i][j] == 2) { //naranjas podridas
+                queue.push([i,j])
+            }
+
+        }
+        
     }
-    // solo me interesa hacer algo si mi valor es 2
-    if (grid[row][col] != 2) {
+    if (fresh == 0) { //no hay naranjas frescas, no se puede hacer un contagio
         return 0;
     }
 
-    let ans = 0;
-    //recuerda: arriba, derecha, abajo, izquierda
-    const directions = [[-1,0], [0,1], [1,0], [0,-1]];
-    for (const direction of directions) {
-        //aqui es donde voy a revisar si mi elemento adyacente es 1 o 0
-        // si es 1, lo combierto en 2; si es 0 no hago nada
-        const newRow = row + direction[0];
-        const newCol = col + direction[1];
-        //se tienen que validar los nuevos limites, por eso en el sigueinte if salia undefined
-        if (!isValid(newRow, newCol, grid)) {
-            continue;
-        }
-        //aqui voy a ver si mi valor adyacente es 1, si es 1, lo cambio a 2
-        if (grid[newRow][newCol] == 1) {
-            grid[newRow][newCol] = 2;
-            ans++;
-            contagio(newRow, newCol, grid)
-            console.log(grid)
+    //este while es el que va a procesar cada minuto
+    while (fresh > 0 && queue.length > 0) { //se valida que existan naranjas frescas y que haya prodridas
+        const size = queue.length; // esto nos dira cuentas naranjas podridas hay al inicio de cada minuto
+        
+        for (let i = 0; i < size; i++) {
+            const [row, col] = queue.shift()!; // shift elimina el primer elemtno del arreglo y lo devuelve como variable, 
             
         }
     }
 
-    return ans;
 
-}
-
-function rottingOranges(grid: number[][]): number{
-    let minutes: number = 0;
-    for (let i = 0; i < grid.length; i++) {
-        for (let j = 0; j < grid[i].length; j++) {
-            minutes = minutes + contagio(i,j,grid);
-            // console.log(grid)
-        }
-        
-    }
-    console.log(grid)
+    console.log(queue, fresh);
     return minutes;
 }
 
@@ -110,4 +99,6 @@ console.log(rottingOranges([
  *      - Si es 1: no hago nada
  *      - Si es 0: no hago nada
  * 
+ * NOTAS RAPIDAS
+ *  - Ten en cuenta todas las validades antes de comenzar a procesar o hacer laguna operacion
  */
