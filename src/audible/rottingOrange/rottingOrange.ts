@@ -66,19 +66,37 @@ function rottingOranges(grid: number[][]): number{
         return 0;
     }
 
-    //este while es el que va a procesar cada minuto
+    //este while es el que va a procesar cada minuto; aqui sabemos que el valor es 2 (podrido)
     while (fresh > 0 && queue.length > 0) { //se valida que existan naranjas frescas y que haya prodridas
         const size = queue.length; // esto nos dira cuentas naranjas podridas hay al inicio de cada minuto
         
         for (let i = 0; i < size; i++) {
-            const [row, col] = queue.shift()!; // shift elimina el primer elemtno del arreglo y lo devuelve como variable, 
-            
+            const [row, col] = queue.shift()!; // shift elimina el primer elemtno del arreglo y lo devuelve como variable, de esta manear solo trabajamos con las naranjas actuales
+            // array of direcction, top, right, bottom and left
+            const directions = [[0,-1],[1,0],[0,1], [-1,0]];
+
+            // para cada naranja podrida actual tenemos que revisar sus vecinos
+            for (const [dRow, dCol] of directions) {
+                const newRow = row + dRow;
+                const newCol = col + dCol;
+                //revisamos que las nuevos valores eson validos
+                if (!isValid(newRow, newCol, grid)) {
+                    continue; //Si es valido, no entra aqui y continua con el proceso, si no es valido, se sale del for y sigue con el otro elemento
+                }
+
+                if (grid[newRow][newCol] === 1) { // si esto esta fresco, lo contagiamos
+                    grid[newRow][newCol] = 2; // se realiza el contagio
+                    //ahora hay menos narajnas fresacas
+                    fresh--;
+                    // y ahora hay mas naranjas podridas
+                    queue.push([newRow,newCol]);
+                }
+            }
         }
+        minutes++;
     }
-
-
     console.log(queue, fresh);
-    return minutes;
+    return (fresh > 0 ? -1: minutes);
 }
 
 console.log(rottingOranges([
@@ -101,4 +119,5 @@ console.log(rottingOranges([
  * 
  * NOTAS RAPIDAS
  *  - Ten en cuenta todas las validades antes de comenzar a procesar o hacer laguna operacion
+ *  - con el nuevo enfoque, Cómo se que a termino? cuado ya no quedan neranjas frescas. ( pero pueden quedar naranjas fresas aisladas)
  */
