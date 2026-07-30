@@ -1,3 +1,4 @@
+export {};
 /**
  * El promedio de radio k para un subconjunto nums centrado en algún índice icon radio k k es el promedio de todos los elementos entre numslos índices i - ky * i + k( inclusive ). Si hay menos de kelementos antes o después del índice k i, entonces el promedio de radio k es k -1.
 

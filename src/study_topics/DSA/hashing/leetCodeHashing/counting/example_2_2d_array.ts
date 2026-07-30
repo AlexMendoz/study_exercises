@@ -1,3 +1,4 @@
+export {};
 /**
  * Example 2: 2248. Intersection of Multiple Arrays
 

@@ -1,3 +1,4 @@
+export {};
 /**
  * Escribe una funcion que volteé un string. la entrada sera un array de caracteres s.
  * deberás realizar los cambios en el mismo array con O(1).

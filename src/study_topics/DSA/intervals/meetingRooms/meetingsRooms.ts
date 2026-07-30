@@ -1,3 +1,4 @@
+export {};
 /**
  * Meeting Rooms II
 Medium
@@ -54,7 +55,7 @@ function viewLimits(final: number, intervals: Intervals[]) {
 }
 
 
-console.log(minMeetingRooms([[0,40],[5,10],[15,20]]))
+console.log(viewLimits(0, [[0,40],[5,10],[15,20]]))
 
 
 /**

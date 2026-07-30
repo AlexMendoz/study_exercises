@@ -1,3 +1,4 @@
+export {};
 /**
  * Ejercicios de sliding window
  * 

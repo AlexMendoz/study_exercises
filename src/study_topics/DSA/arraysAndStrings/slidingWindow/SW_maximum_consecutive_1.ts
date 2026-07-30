@@ -1,3 +1,4 @@
+export {};
 /**
  * Dado un array binario y un entero k, encontrar el sub array maximo intercambiando los 1 dados por k
  * Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2

@@ -1,3 +1,4 @@
+export {};
 // dado un array de numeros y un entero k encuentra el array de continuo de longitud k que tenga el maximo promedio y regresa ese valor.
 
 function bestAverageStaticSubArray(arr: Array<number>, k: number): number{

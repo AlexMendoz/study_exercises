@@ -1,3 +1,4 @@
+export {};
 /**
  * 138. Copiar una lista enlazada con puntero aleatorio
 
@@ -45,9 +46,13 @@ class _Node {
 }
 
 function copyRandomList(head: _Node | null): _Node | null {
+    if (head === null) {
+        return null;
+    }
+
     // primera pasada: crear copias.
     const copies = new Map<_Node, _Node>();
-    let current = head; // que ironico;
+    let current: _Node | null = head; // que ironico;
 
     // este while se ejecuta mientras sea distinto de null, ya que se encuentra un null es que ya llego al final
     while (current !== null) {
@@ -144,4 +149,3 @@ console.log(copyRandomList(node0));
  * El problema todo el tiempo menciona que lo que nos dan y lo que debemos devolver es la cabeza (el head) de una lista nueva. O sea, quiero replicar cierto comportamiento pero apartir de cierto punto ya tiene que ser distintos.
  * 
  */
-

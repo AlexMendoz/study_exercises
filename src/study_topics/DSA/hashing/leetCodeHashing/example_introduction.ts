@@ -1,3 +1,4 @@
+export {};
 function main() {
     let myHashMap = new Map(); //
     

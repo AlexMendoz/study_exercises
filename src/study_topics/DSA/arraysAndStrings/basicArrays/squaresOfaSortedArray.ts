@@ -1,3 +1,4 @@
+export {};
 /**
  * Dado un array de números odenados en orden no decreciente, regresa un array de los cuadrados de cada numero en orden no decreciente.
  * Input: nums = [-4,-1,0,3,10]

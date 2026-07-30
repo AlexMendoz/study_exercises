@@ -1,3 +1,4 @@
+export {};
 /**
  * dado un array nums. Nosotros definimos como running sum (suma acumulada) como un array de runningSum[i] = sum(sum[0]... nums[i])
  * Regresa la runnung Sum(suma acumulada)

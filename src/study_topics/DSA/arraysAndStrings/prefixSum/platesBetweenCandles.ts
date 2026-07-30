@@ -1,3 +1,4 @@
+export {};
 
 
 function validPlates(s: string, queries: number[][]){

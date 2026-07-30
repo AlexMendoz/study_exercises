@@ -1,3 +1,4 @@
+export {};
 /**
     La serie de Fibonacci es una sucesión de números en la cual cada número es la suma de los dos números anteriores.
 

@@ -1,3 +1,4 @@
+export {};
 /**
  * Example 1: 1. Two Sum
 

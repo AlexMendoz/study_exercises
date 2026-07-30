@@ -1,3 +1,4 @@
+export {};
 /**
  * 994. Rotting Oranges
 Medium

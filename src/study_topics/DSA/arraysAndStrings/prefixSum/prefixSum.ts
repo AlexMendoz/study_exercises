@@ -1,3 +1,4 @@
+export {};
 /**
  * La suma de prefijos e suna tecnica que se usa en arrays y string para obtener la suma en tiempo constante de un sub array.
  * 
