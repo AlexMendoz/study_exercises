@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create:review": "bash scripts/create-review-exercise.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

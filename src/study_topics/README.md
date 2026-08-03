@@ -28,3 +28,11 @@ Esta carpeta agrupa ejercicios copiados desde `src/leetCode` y `src/audible` por
 ## StudyNotes
 
 - Notas generales importadas desde las carpetas originales.
+
+## Herramientas de estudio
+
+El repositorio incluye un generador para crear ejercicios con una plantilla de análisis y un archivo TypeScript.
+
+Consulta la guía completa en:
+
+[Generador de ejercicios](docs/exercise-generator.md)
