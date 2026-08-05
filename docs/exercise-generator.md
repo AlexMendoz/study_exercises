@@ -19,7 +19,7 @@ nombre-del-ejercicio/
 study_exercises/
 ├── package.json
 ├── scripts/
-│   └── create-exercise.sh
+│   └── create-review-exercise.sh
 ├── templates/
 │   └── exercise-notes-template.md
 ├── docs/
