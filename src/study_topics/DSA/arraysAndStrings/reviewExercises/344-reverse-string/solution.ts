@@ -9,5 +9,7 @@ function reverseString(s: string[]) {
         aux = s[j];
         s[j] = s[i];
         s[i] = aux;
+        i++;
+        j--;
     }   
 }
