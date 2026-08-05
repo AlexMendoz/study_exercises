@@ -69,25 +69,25 @@ Respuesta: verificar la suma de los elementos respecto a target y aumentar i o d
 
 ## Resultado del intento
 
-- Fecha:
-- Tiempo efectivo:
-- Estado: No terminado / Resuelto con ayuda / Resuelto independientemente
-- Ayuda utilizada: Ninguna / Pista / Explicación / Solución
+- Fecha: 04-08-2026
+- Tiempo efectivo: 40 minutos
+- Estado: Resuelto independientemente
+- Ayuda utilizada: Ninguna 
 - Tests completados:
-- Complejidad temporal:
-- Complejidad espacial:
+- Complejidad temporal: O(n)
+- Complejidad espacial: O(n)
 
 ## Bloqueo principal
 
-Respuesta:
+Respuesta: condicion del while
 
 ## Error encontrado
 
-Respuesta:
+Respuesta: otra vez olvide poner a j como la longitud del array menos 1
 
 ## Aprendizaje principal
 
-Respuesta:
+Respuesta: trabajar con indices y valores de los array, tambien identificar el tipo de condicion que va en el while
 
 ## Próximo reintento
 
