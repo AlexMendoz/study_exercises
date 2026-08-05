@@ -77,24 +77,24 @@ Respuesta:
 ## Resultado del intento
 
 - Fecha: 05-08-2026 16:05
-- Tiempo efectivo:
-- Estado: No terminado / Resuelto con ayuda / Resuelto independientemente
-- Ayuda utilizada: Ninguna / Pista / Explicación / Solución
+- Tiempo efectivo:20 minutos
+- Estado:Resuelto independientemente
+- Ayuda utilizada: Ninguna
 - Tests completados:
 - Complejidad temporal:
 - Complejidad espacial:
 
 ## Bloqueo principal
 
-Respuesta:
+Respuesta: distraccion en mi area de trabajo, no leer bien las instruciones 
 
 ## Error encontrado
 
-Respuesta:
+Respuesta: ninguno
 
 ## Aprendizaje principal
 
-Respuesta:
+Respuesta: intercambias los valores en el mismo lugar
 
 ## Próximo reintento
 
