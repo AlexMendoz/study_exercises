@@ -4,7 +4,7 @@ function validPalindrome(s: string): boolean {
     let ans:boolean = true;
     
     //se normaliza la palabra
-    let newS: string = s.toLocaleLowerCase().replaceAll(" ","").replaceAll(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ]/g, "");
+    let newS: string = s.toLocaleLowerCase().replaceAll(" ","").replaceAll(/[^a-zA-Z0-9]/g, "");
     let j = newS.length-1;
 
     for (let i = 0; i < newS.length; i++) {
