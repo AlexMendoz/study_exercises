@@ -4,38 +4,24 @@ function containerWithMostWater( heigth: number[]): number {
     let i = 0;
     let j = heigth.length -1;
     let area = 0;
-    //tambien tengo que tener una variable auxiliar para cambiar un limite valido
-    let tempI = 0;
-    let tempJ = 0;
-
-
-
-    // no necesito guardar las variables, solo tengo que calcular el area maxima por que area será la maxima
-
 
     while (i < j) {
-
         let tempArea = 0;
-
         let altura = Math.min(heigth[i], heigth[j]);
         let distancia = j - i;
-        
         // condicion para avanzar j o avanzar i
         tempArea = distancia * altura;
         let difI = tempArea - heigth[i];
         let difJ = tempArea - heigth[j];
 
-        if (difI > difJ) {
+        if (heigth[i] < heigth[j]) {
             i++;
         } else {
             j--;
         }
         area = Math.max(area, tempArea)
-        
     }
     return area;
-
-    //area 9 -> altura 1 distancia 9 ; 9 -1= 8; 9 - 9= 0
 }
 
 console.log(containerWithMostWater([1,8,6,2,5,4,8,3,7]))
@@ -52,9 +38,5 @@ console.log(containerWithMostWater([1,1]))
  * [1,8] = [8,7], altura maxima 7, base = 8 -1 = 7; 7x7 = 49
  * 
  * [1,1] = 1
- * 
- * 
- * 
- * 
  * 
  */
