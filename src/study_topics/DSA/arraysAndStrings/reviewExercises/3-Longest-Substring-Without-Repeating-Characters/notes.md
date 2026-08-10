@@ -83,25 +83,25 @@ Respuesta: identificar las letras repetidas en el substring
 
 ## Resultado del intento
 
-- Fecha:
-- Tiempo efectivo:
-- Estado: No terminado / Resuelto con ayuda / Resuelto independientemente
-- Ayuda utilizada: Ninguna / Pista / Explicación / Solución
+- Fecha: 10-08-2026
+- Tiempo efectivo: 1hr 40 minutos
+- Estado: Resuelto independientemente
+- Ayuda utilizada: Ninguna
 - Tests completados:
-- Complejidad temporal:
-- Complejidad espacial:
+- Complejidad temporal: O(n)
+- Complejidad espacial: O(n)
 
 ## Bloqueo principal
 
-Respuesta:
+Respuesta: identificar bajo que caso se tenia que detener j y avanzar i
 
 ## Error encontrado
 
-Respuesta:
+Respuesta: no saltar una iteracion cuando i tenia que avanzar
 
 ## Aprendizaje principal
 
-Respuesta:
+Respuesta:identificar los casos donde tiene que avanzar i y j
 
 ## Próximo reintento
 
