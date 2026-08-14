@@ -2,42 +2,33 @@ export {};
 
 function longestSubstringRepeatingCharacter(s: string, k: number) {
 
-    
     let letter = new Set(s);
     let len = 0;
     let ans = 0;
-    let newK = k;
-
     for (const c of letter) {
         let i = 0;
-        let j = 0;
-        while (j < s.length) {
-            
+        let change = 0;
+        for (let j = 0; j < s.length; j++) {
             // caso 1)
-            if (s[j] != c && newK > 0) {
-                newK--;
+            if (s[j] != c) {
+                change++;
             }
-
             // caso 2)
-            if (s[j] != c && newK == 0) {
-                if (s[i] != c && newK < k) {
-                    newK++;
+            while (change > k) {
+                if (s[i] != c) {
+                    change--;
                 }
-                i++;    
+                i++;
             }
-            console.log()
-            j++;
             len = j + 1 -i;
             ans = Math.max(ans, len);
-            console.log(ans)
         }
     }
     return ans;
-
 }
 
 console.log(longestSubstringRepeatingCharacter("AABABBA", 1))    
-// console.log(longestSubstringRepeatingCharacter("ABAB", 2))
+console.log(longestSubstringRepeatingCharacter("ABAB", 2))
 
 /**
  * NUEVAS IDEAS

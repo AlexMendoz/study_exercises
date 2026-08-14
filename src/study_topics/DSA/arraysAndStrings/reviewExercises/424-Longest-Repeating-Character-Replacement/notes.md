@@ -84,31 +84,31 @@ Respuesta: sliding window
 
 ### Regla principal del algoritmo
 
-Respuesta:
+Respuesta: contar los cambios y detectar cuando se tiene que avanzar i
 
 ---
 
 ## Resultado del intento
 
-- Fecha: 12-08-2026 20 min aprox + 40 min + 20min
+- Fecha: 12-08-2026 20 min aprox + 40 min + 20min +20min
 - Tiempo efectivo:
-- Estado: No terminado / Resuelto con ayuda / Resuelto independientemente
-- Ayuda utilizada: Ninguna / Pista / Explicación / Solución
+- Estado: Resuelto independientemente
+- Ayuda utilizada: Explicación
 - Tests completados:
-- Complejidad temporal:
-- Complejidad espacial:
+- Complejidad temporal: O(n2)
+- Complejidad espacial: O(n)
 
 ## Bloqueo principal
 
-Respuesta:
+Respuesta: Identificar cuando tiene que avanzar i, como detectar los "cambios" para saber cuando tenia cambios disponibles 
 
 ## Error encontrado
 
-Respuesta:
+Respuesta: mala implementacion en las condicionces y en como aumentaba los valores, realizar calculos en el orden incorrecto
 
 ## Aprendizaje principal
 
-Respuesta:
+Respuesta: Pensar en soluciones simples, identifica correctamente como hacer los incrementos de mi limite izquierdo, colocar el codigo en el orden correcto, ya que esto puede producir salidas erroneas
 
 ## Próximo reintento
 
