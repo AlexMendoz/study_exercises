@@ -85,31 +85,31 @@ Respuesta: sliding window
 
 ### Regla principal del algoritmo
 
-Respuesta:
+Respuesta: contar los cambios para avanzar i y realizar la asignacion de variables en orden
 
 ---
 
 ## Resultado del intento
 
-- Fecha:
-- Tiempo efectivo:
-- Estado: No terminado / Resuelto con ayuda / Resuelto independientemente
-- Ayuda utilizada: Ninguna / Pista / Explicación / Solución
+- Fecha: 17-08-2026
+- Tiempo efectivo: 40 min
+- Estado: Resuelto con ayuda
+- Ayuda utilizada: Pista
 - Tests completados:
-- Complejidad temporal:
-- Complejidad espacial:
+- Complejidad temporal: O(n)
+- Complejidad espacial: O(n)
 
 ## Bloqueo principal
 
-Respuesta:
+Respuesta: determinar como se debe avanzar i
 
 ## Error encontrado
 
-Respuesta:
+Respuesta: 
 
 ## Aprendizaje principal
 
-Respuesta:
+Respuesta: identificar en que condidicon se debe aumentar i 
 
 ## Próximo reintento
 
