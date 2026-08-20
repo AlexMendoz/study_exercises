@@ -96,16 +96,16 @@ Respuesta: consaultar el valor actual con el set precargado
 ## Resultado del intento
 
 - Fecha:
-- Tiempo efectivo: 17:25 -17:50
-- Estado: No terminado / Resuelto con ayuda / Resuelto independientemente
-- Ayuda utilizada: Ninguna / Pista / Explicación / Solución
+- Tiempo efectivo: 17:25 -17:50, nuevo tiempo sin timeOut 10:22 - 22:37
+- Estado: Resuelto con ayuda
+- Ayuda utilizada: Explicación
 - Tests completados:
-- Complejidad temporal:
-- Complejidad espacial:
+- Complejidad temporal: O(n)
+- Complejidad espacial: O(1)
 
 ## Bloqueo principal
 
-Respuesta:
+Respuesta: identificar como tener una raiz para los anagramas
 
 ## Error encontrado
 
@@ -113,7 +113,7 @@ Respuesta: la solucion paso pero tiene TimeOut en inputs grandes
 
 ## Aprendizaje principal
 
-Respuesta:
+Respuesta: usar todos lo recuersos para resolverlo, con recursos es usar todo lo que he aprendido
 
 ## Próximo reintento
 
