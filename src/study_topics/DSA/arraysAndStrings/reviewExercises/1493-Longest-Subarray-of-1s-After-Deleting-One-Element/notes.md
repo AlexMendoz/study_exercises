@@ -1,4 +1,4 @@
-# longest-subarray-of-1s-after-deleting-one-element
+# 1493-longest-subarray-of-1s-after-deleting-one-element
 
 Given a binary array nums, you should delete one element from it.
 
