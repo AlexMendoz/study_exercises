@@ -87,9 +87,15 @@ Respuesta: hashing
 
 ### Responsabilidad de las variables
 
-- Variable:
-- Representa:
-- ¿Cuándo cambia?
+- Variable: words
+- Representa: split de las palabras de s
+- ¿Cuándo cambia? cuando se hace el slip de s
+- Variable: OnebyOne
+- Representa: mapeo de las letras de patter a s
+- ¿Cuándo cambia? cada que se agrega una nueva clave al map
+- Variable: unique
+- Representa: Set de palabras de s, debe tener la misma longitud de las llaves del map
+- ¿Cuándo cambia? cuando se hace el split de s
 
 ### Regla principal del algoritmo
 
@@ -99,25 +105,25 @@ Respuesta:
 
 ## Resultado del intento
 
-- Fecha:
-- Tiempo efectivo: 8:20
-- Estado: No terminado / Resuelto con ayuda / Resuelto independientemente
-- Ayuda utilizada: Ninguna / Pista / Explicación / Solución
+- Fecha: 27 de agosto
+- Tiempo efectivo: 1hr 20 min
+- Estado: No terminado / Resuelto con ayuda
+- Ayuda utilizada: Explicación
 - Tests completados:
-- Complejidad temporal:
-- Complejidad espacial:
+- Complejidad temporal:O(n)
+- Complejidad espacial: (n+m)
 
 ## Bloqueo principal
 
-Respuesta:
+Respuesta: entender el problema completamente, identificar los casos implicitos en las instrucciones, por ejemplo, que si es una relacion 1 a 1, tienen que tener la misma longitud patter y s.split
 
 ## Error encontrado
 
-Respuesta:
+Respuesta: en la logica no contemplaba que la relacion tenia que se uno a uno y realizaba mapeos erroneos
 
 ## Aprendizaje principal
 
-Respuesta:
+Respuesta: trabajo con maps y set, lo tengo que mejorar
 
 ## Próximo reintento
 
