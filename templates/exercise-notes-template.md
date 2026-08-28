@@ -1,84 +1,61 @@
-# Número. Nombre del ejercicio
+# <número>. <nombre del ejercicio>
 
-## Análisis previo
+## 1. Análisis previo
 
-### 1. ¿Qué me están pidiendo exactamente?
-
+### ¿Qué me están pidiendo?
 Respuesta:
 
-### 2. ¿Cuál es el input?
+### Input / Output
+- Input:
+- Output:
 
+### Ejemplo pequeño
 Respuesta:
 
-### 3. ¿Cuál es el output?
-
+### ¿Qué información necesito conservar?
 Respuesta:
 
-### 4. ¿Qué pasa en un ejemplo pequeño?
-
+### Patrón o estructura que parece encajar
 Respuesta:
 
-### 5. ¿Cuál sería una solución brute force?
-
-Respuesta:
-
-### 6. ¿Qué información necesito recordar?
-
-Respuesta:
-
-### 7. ¿Qué recorrido o estructura necesito?
-
-- ¿Necesito recorrer todo?
-- ¿Necesito dos posiciones?
-- ¿Necesito recordar valores anteriores?
-- ¿Necesito una ventana?
-- ¿Necesito una estructura adicional?
-
-Respuesta:
-
-### 8. ¿Qué patrón parece encajar?
-
+### Brute force (opcional)
 Respuesta:
 
 ---
 
-## Antes de programar
-
-### Responsabilidad de las variables
-
-- Variable:
-- Representa:
-- ¿Cuándo cambia?
+## 2. Antes de programar
 
 ### Regla principal del algoritmo
-
 Respuesta:
+
+### Variables / estructuras importantes
+- `variable`:
+  - Representa:
+  - Cambia cuando:
 
 ---
 
-## Resultado del intento
+## 3. Resultado
 
-- Fecha:
-- Tiempo efectivo:
-- Estado: No terminado / Resuelto con ayuda / Resuelto independientemente
-- Ayuda utilizada: Ninguna / Pista / Explicación / Solución
-- Tests completados:
+- Fecha: YYYY-MM-DD
+- Tiempo efectivo: ___ minutos
+- Estado: `No terminado | Resuelto con ayuda | Resuelto independientemente`
+- Ayuda utilizada: `Ninguna | Pista | Explicación | Solución`
 - Complejidad temporal:
 - Complejidad espacial:
 
-## Bloqueo principal
+---
 
+## 4. Revisión
+
+### Bloqueo principal
 Respuesta:
 
-## Error encontrado
-
+### Error encontrado
 Respuesta:
 
-## Aprendizaje principal
-
+### Aprendizaje principal
 Respuesta:
 
-## Próximo reintento
-
-- Fecha:
-- Objetivo:
+### Qué haría diferente la próxima vez
+Respuesta:

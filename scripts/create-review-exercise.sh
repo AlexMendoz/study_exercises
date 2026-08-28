@@ -4,6 +4,9 @@ set -e
 
 TOPIC="$1"
 EXERCISE_NAME="$2"
+EXERCISE_NUMBER="${EXERCISE_NAME%%-*}"
+EXERCISE_TITLE="${EXERCISE_NAME#*-}"
+EXERCISE_TITLE="${EXERCISE_TITLE//-/ }"
 
 BASE_DIR="src/study_topics/DSA"
 TEMPLATE="templates/exercise-notes-template.md"
@@ -32,7 +35,9 @@ if [[ -d "$EXERCISE_DIR" ]]; then
 fi
 
 mkdir -p "$EXERCISE_DIR"
-cp "$TEMPLATE" "$EXERCISE_DIR/notes.md"
+awk -v number="$EXERCISE_NUMBER" -v title="$EXERCISE_TITLE" \
+    'NR == 1 { $0 = "# " number ". " title } { print }' \
+    "$TEMPLATE" > "$EXERCISE_DIR/notes.md"
 touch "$EXERCISE_DIR/solution.ts"
 
 echo "Ejercicio creado:"
