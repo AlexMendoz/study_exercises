@@ -11,7 +11,7 @@ function wordPatter(pattern: string, s: string) {
 
     let oneByOne = new Map();
     let unique = new Set();
-    for (let i = 0; i < s.length; i++) {
+    for (let i = 0; i < words.length; i++) {
         //validacion por si la clave ya existe, tengoq ue ver que el valor sea, el mismo, si es mismo no pasa nada pero si es otro, regresamos false
         if (oneByOne.has(pattern[i])) {
             // console.log(oneByOne
