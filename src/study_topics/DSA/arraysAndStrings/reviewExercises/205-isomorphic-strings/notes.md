@@ -104,17 +104,17 @@ Respuesta:
 
 ## Resultado del intento
 
-- Fecha: 24 de agosto
-- Tiempo efectivo: 50 minutos
-- Estado: Resuelto independientemente
-- Ayuda utilizada: Explicación
+- Fecha: 24 de agosto; 29-08-2026
+- Tiempo efectivo: 50 minutos; 46 minutos
+- Estado: Resuelto independientemente, independiente
+- Ayuda utilizada: Explicación, ninguna
 - Tests completados:
 - Complejidad temporal: O(n)
 - Complejidad espacial: O(n log m)
 
 ## Bloqueo principal
 
-Respuesta: identificar correctamente los casos para determinar el mapeo de cada string
+Respuesta: identificar correctamente los casos para determinar el mapeo de cada string; considerar las relaciones 1 a 1, si una llave ya existia, se obtenia el valor y se comparaba con el valor nuevo, si eran iguales pasa, sino, termina
 
 ## Error encontrado
 
@@ -122,7 +122,7 @@ Respuesta: Que los valores de s apuntaban al mismo valor de t y eso no estaba pe
 
 ## Aprendizaje principal
 
-Respuesta: identificar las fucnionalidades por defecto de Map, mejorar la logico al realizar este tipo de ejercicios
+Respuesta: identificar las fucnionalidades por defecto de Map, mejorar la logico al realizar este tipo de ejercicios; usar un Set de apoyo
 
 ## Próximo reintento
 

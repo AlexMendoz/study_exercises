@@ -2,12 +2,6 @@ export {};
 
 function anagrams(strs: string[]): string[][]{
 
-    let unique = new Set();
-    for (const c of strs) {
-        const raiz = c.split("").sort().join();
-        unique.add(raiz);
-    }
-
     let anagrams = new Map();
 
     for (const c of strs) {
