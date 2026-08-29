@@ -95,8 +95,8 @@ Respuesta: consaultar el valor actual con el set precargado
 
 ## Resultado del intento
 
-- Fecha:
-- Tiempo efectivo: 17:25 -17:50, nuevo tiempo sin timeOut 10:22 - 22:37
+- Fecha: nueva fecha 28-08-2026
+- Tiempo efectivo: 17:25 -17:50, nuevo tiempo sin timeOut 10:22 - 22:37, nuevo tiempo 25 min
 - Estado: Resuelto con ayuda
 - Ayuda utilizada: Explicación
 - Tests completados:
