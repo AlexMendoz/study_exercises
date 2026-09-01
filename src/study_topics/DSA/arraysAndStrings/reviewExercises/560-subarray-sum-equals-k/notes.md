@@ -65,13 +65,13 @@ Respuesta:
 Respuesta: se necesito entender mejor como utlizar prefix sum y map para encontrar la solucion, no es tan intuitivo que se deben de contar las frecuencias de aparicion de un numero,
 
 ### Error encontrado
-Respuesta:
+Respuesta: obtener un valor que no era en el map y luego aumentar ese valor
 
 ### Aprendizaje principal
-Respuesta:
+Respuesta:tener un mejor entendimiento de como se puedne aplicar los conceptos de prefix sum y map para resolver problemas
 
 ### Qué haría diferente la próxima vez
-Respuesta:
+Respuesta: anotar mis ideas ya que la primera vez que intente resolver este problema si pende que seria mejor con un prefix sum pero no lograba comprender por que necesitaba un map
 
 ## Notas extras
 
