@@ -7,6 +7,7 @@
     "create:exercise": "bash scripts/create-review-exercise.sh",
     "create:exercice": "npm run create:exercise --",
     "create:review": "bash scripts/create-review-exercise.sh",
+    "create:hackerrank": "bash scripts/create-hackerrank-exercise.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

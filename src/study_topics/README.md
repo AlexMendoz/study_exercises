@@ -24,6 +24,7 @@ Esta carpeta agrupa ejercicios copiados desde `src/leetCode` y `src/audible` por
 ## InterviewPractice
 
 - Seguimiento y notas de practica de entrevistas.
+- [HackerRank: kit de preparación de un mes](InterviewPractice/hackerRank/oneMonthPreparationKit/README.md), organizado por días y ejercicios.
 
 ## StudyNotes
 
