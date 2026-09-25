@@ -66,16 +66,23 @@ console.log(maxSumMatrix([[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]]));
  * [9,10,11,12], 
  * [13,14,15,16]
  * 
- * [0,0]    -> 1,4,13,16 [0,0], [0,n], [n,0], [n,n]
- * [0,1]    -> 2,3,14,15 
- * [1,0]    -> 5,9,8,12
- * [1,1]    -> 6,7,10,11
+ * [0,0]    -> 1,4,13,16    [0,0], [0,n], [n,0], [n,n]
+ * [0,1]    -> 2,3,14,15    [0,1], [0,2], [n,1], [n,2]
+ * [1,0]    -> 5,9,8,12     [1,0], [2,0], [1,n], [2,n]
+ * [1,1]    -> 6,7,10,11    [1,1], [1,2], [2,1], [2,2]
  * 
  * cada array se puede guardar en un map 0 -> []
  * 
  * la longitud del array seria de n*n y luego solo sumamos esos elementos, 
  * 
  * PSEUDOCODIGO 
+ * 
+ * INPUT matriz
+ * 
+ * crear array para los elementos maximos de cada posicion de la matriz
+ * let maxNums = [] de tamaño (n/2)² numeros del sector 1; m.len 8 = (8/2)² = 4² = 16: m.len = 4 -> 2
+ * 
+ * 
  * 
  * 
  */
