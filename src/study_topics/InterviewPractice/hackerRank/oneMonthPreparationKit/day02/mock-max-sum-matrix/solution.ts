@@ -2,40 +2,58 @@ export {};
 
 function maxSumMatrix(m: number[][]): number {
     //hacer validaciones por que sto necesita una matriz con elemtnos
+    let n = (m.length/2) ; // longitud del primer sector
+    let nl = (2*n) -1; // FORMULA matriz 2nx2n -> 2n = 4; n = 2, restar menos uno para que este dentor de los limites de la matriz
+    let s1 = []
 
-    /**
-     * m[0]     -> iteramos sobre un un reglon de longitud n
-     * map(_,ci)-> obtenemos lo indices (0,1,2,3)
-     * m.map(r) -> aqui iteremos para cada renglon [1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]
-     * row[ci]  -> obtener los elementos de indice i para cada renglon -> [1,5,9,13]
-     *
-     */
-    let trans = m[0].map((_, colIndex) => m.map(row => row[colIndex]));
-
-    const sumLeftUp = (m: number[][]) => {
-        let len = (m[0].length -1)/2;
-        let sum = 0;
-        for (let i = 0; i < len; i++) {
-            for (let j = 0; j < len; j++) {
-                console.log(m[i][j]);
-                
-                sum +=m[i][j]
-            }
+    for (let i = 0; i < m.length/2; i++) {
+        let maxVal = 0;
+        for (let j = 0; j < m.length/2; j++) {
+            // console.log(m[i][j], m[i][nl-j], m[nl-i][j],m[nl-i][nl-j])
+            maxVal = Math.max(m[i][j], m[i][nl-j], m[nl-i][j],m[nl-i][nl-j]);
+            s1.push(maxVal);
+            // console.log(" ")
         }
-
-        return sum;
     }
-
-    console.log("up left: ", sumLeftUp(m))
-
-    console.log("\n ", m)
-
-    return 0;
+    // console.log(m[0][0], m[0][3], m[3][0], m[3][3])
+    console.log(s1)
+    let answer = s1.reduce((a,b) => a+b );
+    return answer;
 }
 
 
+function flippingMatrix(matrix: number[][]): number {
+    // Write your code here
+    
+    let n = matrix.length/2; //longitud de mi primer cuadrante
+    let nl = (2*n) -1; // Necestiamos este valor par abtener los elemtos que puedne ir en el primer cuadrante, para matrix = 4, n = 4/2 = 2; 2*2-1 = 3, lo cual corresponde con el indice del ultimo elemento
+    let maxValues = [];
+    
+    for(let i = 0; i < n; i++){
+        let maxValue = 0;
+        for(let j = 0; j < n; j++){
+            //console.log(matrix[i][j], matrix[i][nl-j], matrix[nl-i][j],matrix[nl-i][nl-j]);
+            maxValue = Math.max(matrix[i][j], matrix[i][nl-j], matrix[nl-i][j],matrix[nl-i][nl-j])
+            maxValues.push(maxValue);
+        }
+    }
+    
+    let answer = maxValues.reduce((a,b) => a+b );
+    return answer;
 
-console.log(maxSumMatrix([[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]]));
+}
+
+console.log(flippingMatrix([
+    [1,2,3,4], // [0,0], [0,3], [3,0], [3,3]
+    [5,6,7,8], 
+    [9,10,11,12], 
+    [13,14,15,16]]));
+
+console.log(maxSumMatrix([
+    [1,2,3,4], // [0,0], [0,3], [3,0], [3,3]
+    [5,6,7,8], 
+    [9,10,11,12], 
+    [13,14,15,16]]));
 
 
 /**
